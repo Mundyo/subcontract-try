@@ -15,10 +15,14 @@ const PORT = process.env.PORT || 3001;
 
 
 
- app.use(cors({
-    origin: 'https://subcontract-frontend-c1acdc80baef.herokuapp.com',
-    credentials: true,
-  }));
+
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://subcontract-frontend-c1acdc80baef.herokuapp.com');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+});
 
 const DB = 'mongodb+srv://Chelsea:Kasongi2014!@cluster0.ali2jhg.mongodb.net/';
 

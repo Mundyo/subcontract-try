@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3001;
 
 
  app.use(cors({
-    origin: true,
+    origin: 'https://subcontract-frontend-c1acdc80baef.herokuapp.com',
     credentials: true,
   }));
 

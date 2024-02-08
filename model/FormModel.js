@@ -53,27 +53,27 @@ const formSchema = new mongoose.Schema({
       this.slug = slugify(`${this.name} - ${timestamp}`, { lower: true, strict: true });
     }
   
-    if (this.fileUpload && this.fileUpload.data) {
-      const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
-      const contentType = this.fileUpload.contentType;
-      if (!allowedMimeTypes.includes(contentType)) {
-        const ext = path.extname(this.fileUpload.filename).toLowerCase();
-        switch (ext) {
-          case '.jpg':
-          case '.jpeg':
-            this.fileUpload.contentType = 'image/jpeg';
-            break;
-          case '.png':
-            this.fileUpload.contentType = 'image/png';
-            break;
-          case '.gif':
-            this.fileUpload.contentType = 'image/gif';
-            break;
-          default:
-            this.fileUpload.contentType = 'application/octet-stream';
-        }
-      }
-    }
+    // if (this.fileUpload && this.fileUpload.data) {
+    //   const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    //   const contentType = this.fileUpload.contentType;
+    //   if (!allowedMimeTypes.includes(contentType)) {
+    //     const ext = path.extname(this.fileUpload.filename).toLowerCase();
+    //     switch (ext) {
+    //       case '.jpg':
+    //       case '.jpeg':
+    //         this.fileUpload.contentType = 'image/jpeg';
+    //         break;
+    //       case '.png':
+    //         this.fileUpload.contentType = 'image/png';
+    //         break;
+    //       case '.gif':
+    //         this.fileUpload.contentType = 'image/gif';
+    //         break;
+    //       default:
+    //         this.fileUpload.contentType = 'application/octet-stream';
+    //     }
+    //   }
+    // }
   
     if (this.textArea !== null && this.issue === 'other') {
       this.customTextAreaProcessing = this.textArea;
